@@ -1,0 +1,55 @@
+<% content_for :title, "Quests" %>
+<div class="max-w-md mx-auto p-6 mt-10">
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <h1 class="text-2xl font-bold text-indigo-700">My Academy Quest</h1>
+    <p class="text-gray-500 text-sm">Parnfa Phathabannaporn</p>
+  </div>
+  <!-- Profile Image -->
+  <div class="flex justify-center mb-6">
+    <%= image_tag "parnfa.jpg", class: "w-full h-100 object-cover" %>
+  </div>
+  <!-- Brag Button -->
+  <div class="flex justify-center mb-6">
+    <%= link_to "My brag document", "#",
+      class: "bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full font-medium shadow" %>
+  </div>
+  <!-- Add Quest Form -->
+  <div class="flex mb-6">
+    <%= form_with model: Quest.new, url: quests_path, local: true, class: "flex w-full" do |f| %>
+      <%= f.text_field :name, placeholder: "Add my quest list",
+          class: "flex-1 rounded-l-full border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-indigo-200" %>
+      <%= f.submit "+", 
+          class: "bg-indigo-400 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-r-full" %>
+    <% end %>
+  </div>
+  <!-- Quest List -->
+  <div class="space-y-4 mb-14 w-full max-w-md mx-auto">
+    <% @quests.each do |quest| %>
+      <li class="relative flex items-center justify-between px-4 py-3 rounded-xl bg-white/70 backdrop-blur-md shadow hover:bg-blue-100 transition cursor-pointer group">
+        <!-- Invisible link overlay -->
+        <%= link_to edit_quest_path(quest), class: "absolute inset-0 z-0" do %>
+          &nbsp;
+        <% end %>
+        <!-- Checkbox + Name + Delete -->
+        <div class="flex items-center space-x-3 relative z-10">
+          <%= form_with url: toggle_quest_path(quest), method: :post, local: true do %>
+            <%= check_box_tag "status", "1", quest.status,
+            onchange: "this.form.submit()", 
+            class: "w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-blue-300" %>
+          <% end %>
+          <span class="<%= quest.status ? 'line-through text-gray-400' : 'text-gray-800' %> text-lg">
+            <%= quest.name %>
+          </span>
+        </div>
+        <div class="relative z-10">
+          <%= button_to "🗑", quest,
+          method: :delete,
+          data: { confirm: "Delete this quest?" },
+          class: "text-red-400 hover:text-red-600 text-lg cursor-pointer",
+          form: { class: "inline" } %>
+        </div>
+      </li>
+    <% end %>
+  </div>
+</div>

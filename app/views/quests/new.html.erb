@@ -1,0 +1,11 @@
+<% content_for :title, "New quest" %>
+
+<h1>New quest</h1>
+
+<%= render "form", quest: @quest %>
+
+<br>
+
+<div>
+  <%= link_to "Back to quests", quests_path %>
+</div>
