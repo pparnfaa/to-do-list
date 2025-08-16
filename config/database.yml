@@ -88,6 +88,7 @@ production:
   primary: &primary_production
     <<: *default
     url: <%= ENV["DATABASE_URL"] %>
+    sslmode: require
   cache:
     <<: *primary_production
     url: <%= ENV["DATABASE_URL"] %>
