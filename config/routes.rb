@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "brag_document/index"
   resources :quests
 
   resources :quests do
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
       post :toggle
     end
   end
+
+  get "brag_document", to: "brag_documents#index"
 root "quests#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

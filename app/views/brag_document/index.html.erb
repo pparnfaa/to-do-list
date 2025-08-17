@@ -1,0 +1,120 @@
+<!-- app/views/brag_documents/index.html.erb -->
+<div class="min-h-screen bg-gradient-to-b from-indigo-50 to-blue-100 px-6 py-12">
+  <!-- Back Button (responsive) -->
+  <div class="fixed top-3 left-3 md:absolute md:top-6 md:left-6 z-50">
+    <%= link_to quests_path,
+        class: "inline-flex items-center gap-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white
+                shadow-lg transition focus:outline-none focus:ring-4 focus:ring-indigo-300 active:scale-[0.98]
+                px-3 py-2 text-sm md:px-5 md:py-2.5 md:text-base" ,
+        aria: { label: "Back to Quests" } do %>
+      <!-- Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      <span class="hidden sm:inline">Back</span>
+    <% end %>
+  </div>
+  <!-- Header -->
+  <header class="max-w-4xl mx-auto text-center mb-14">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700">My Brag Document</h1>
+    <p class="mt-2 text-gray-600 md:text-lg">ปี 2025 — เป้าหมาย การเติบโต และสิ่งที่ภูมิใจ ✨</p>
+  </header>
+  <!-- Goals 2025 -->
+  <section class="max-w-4xl mx-auto mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">🎯 เป้าหมายในปี 2025</h2>
+    <ul class="grid gap-3 md:gap-4 md:grid-cols-2">
+      <li class="flex items-start gap-3">
+        <span class="mt-1">✅</span>
+        <span class="text-gray-800">ออกกำลังกายให้มากขึ้น</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="mt-1">📱</span>
+        <span class="text-gray-800">พัฒนา Mobile Application เกี่ยวกับ Mood Tracker และ publish ลงใน Store</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="mt-1">🛠️</span>
+        <span class="text-gray-800">เรียนรู้เนื้อหา DevOps ให้เก่ง</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="mt-1">💻</span>
+        <span class="text-gray-800">ซื้อ Macbook ด้วยเงินเก็บของตัวเอง</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="mt-1">🧠</span>
+        <span class="text-gray-800">เรียนรู้ React, Express.js, PostgreSQL, Ruby on Rails</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="mt-1">🗣️</span>
+        <span class="text-gray-800">ใช้ภาษาอังกฤษให้คล่องแคล่วมากขึ้น</span>
+      </li>
+    </ul>
+  </section>
+  <!-- Habits & Values -->
+  <section class="max-w-4xl mx-auto mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-2">🌱 Habits & Values</h2>
+    <p class="text-gray-600 mb-6">สิ่งที่ทำเป็นประจำเพื่อไปให้ถึงเป้าหมาย</p>
+    <div class="grid gap-10 md:grid-cols-2">
+      <!-- Self -->
+      <div>
+        <h3 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-3">Self</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1">📖</span>
+            <span class="text-gray-800">อ่าน doc ในเรื่องต่าง ๆ วันละ <b>30 นาที</b></span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1">🏃‍♀️</span>
+            <span class="text-gray-800">ออกกำลังกายสัปดาห์ละ <b>2 วัน</b></span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1">🧩</span>
+            <span class="text-gray-800">จำคำศัพท์ Oxford วันละ <b>5 คำ</b></span>
+          </li>
+        </ul>
+      </div>
+      <!-- Team -->
+      <div>
+        <h3 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-3">Team</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1">🛡️</span>
+            <span class="text-gray-800">จะพาเพื่อน ๆ ทุกคนผ่านไปให้ได้ทุก Quest ให้ได้</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1">🤝</span>
+            <span class="text-gray-800">ช่วยเหลือเพื่อนในทีมทั้งเรื่องงานและเรื่องทั่วไป</span>
+          </li>
+        </ul>
+      </div>
+      <!-- ODT -->
+      <div>
+        <h3 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-3">ODT</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1">🚀</span>
+            <span class="text-gray-800">ตั้งใจทำทุก Quest และทุกอย่างที่ทาง ODT มอบให้ เพราะอยากเป็นส่วนหนึ่งที่ทำให้ ODT เติบโต</span>
+          </li>
+        </ul>
+      </div>
+      <!-- Client -->
+      <div>
+        <h3 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-3">Client</h3>
+        <div class="text-gray-500 italic">– (พื้นที่สำหรับเพิ่มความสำเร็จจากงานลูกค้า) –</div>
+      </div>
+    </div>
+  </section>
+  <!-- Quick Stats / Badges (optional cute line) -->
+  <section class="max-w-4xl mx-auto mb-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">🏅 Cute Progress Badges</h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-4 py-2 rounded-full bg-white/60 text-indigo-700">Mood Tracker App • In Progress</span>
+      <span class="px-4 py-2 rounded-full bg-white/60 text-indigo-700">DevOps Study • Weekly</span>
+      <span class="px-4 py-2 rounded-full bg-white/60 text-indigo-700">Oxford 5/day • Streak!</span>
+      <span class="px-4 py-2 rounded-full bg-white/60 text-indigo-700">Workout 2x/week</span>
+    </div>
+  </section>
+  <!-- Footer Nav -->
+  <footer class="max-w-4xl mx-auto flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-sm text-gray-600">
+    <div class="text-gray-500">Last updated: <%= Time.current.strftime("%B %Y") %></div>
+  </footer>
+</div>
