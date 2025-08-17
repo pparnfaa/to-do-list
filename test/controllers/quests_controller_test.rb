@@ -20,7 +20,7 @@ class QuestsControllerTest < ActionDispatch::IntegrationTest
       post quests_url, params: { quest: { name: @quest.name, status: @quest.status } }
     end
 
-    assert_redirected_to quest_url(Quest.last)
+    assert_redirected_to quests_path
   end
 
   test "should show quest" do
@@ -35,7 +35,7 @@ class QuestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update quest" do
     patch quest_url(@quest), params: { quest: { name: @quest.name, status: @quest.status } }
-    assert_redirected_to quest_url(@quest)
+    assert_redirected_to quests_path
   end
 
   test "should destroy quest" do
