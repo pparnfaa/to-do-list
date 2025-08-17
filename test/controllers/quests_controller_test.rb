@@ -45,4 +45,17 @@ class QuestsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to quests_url
   end
+
+  test "should toggle quest status" do
+    original_status = @quest.status
+
+    post toggle_quest_url(@quest)
+
+    @quest.reload
+    assert_equal !original_status, @quest.status, "Quest status should be toggled"
+
+    assert_redirected_to quests_path
+
+    assert_equal "Quest updated.", flash[:notice]
+  end
 end

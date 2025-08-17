@@ -3,15 +3,14 @@ class QuestsController < ApplicationController
 
   def toggle
     @quest.update(status: !@quest.status)
-    respond_to do |format|
-      format.html { redirect_to quests_path, notice: "Quest updated." }
-      format.json { render :show, status: :ok, location: @quest }
-    end
+    redirect_to quests_path, notice: "Quest updated."
   end
+
 
   # GET /quests or /quests.json
   def index
     @quests = Quest.all
+    @quests = Quest.order(created_at: :asc)
   end
 
   # GET /quests/1 or /quests/1.json
@@ -30,30 +29,20 @@ class QuestsController < ApplicationController
   # POST /quests or /quests.json
   def create
     @quest = Quest.new(quest_params)
-
-    respond_to do |format|
-      if @quest.save
-        format.html { redirect_to quests_path, notice: "Quest was successfully created." }
-        format.json { render :show, status: :created, location: @quest }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @quest.errors, status: :unprocessable_entity }
-      end
+    if @quest.save
+      redirect_to quests_path, notice: "Quest was successfully created."
     end
   end
+
 
   # PATCH/PUT /quests/1 or /quests/1.json
   def update
-    respond_to do |format|
-      if @quest.update(quest_params)
-        format.html { redirect_to quests_path, notice: "Quest was successfully updated." }
-        format.json { render :show, status: :ok, location: @quest }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @quest.errors, status: :unprocessable_entity }
-      end
+    @quest = Quest.find(params[:id])
+    if @quest.update(quest_params)
+      redirect_to quests_path, notice: "Quest was successfully updated."
     end
   end
+
 
   # DELETE /quests/1 or /quests/1.json
   def destroy
