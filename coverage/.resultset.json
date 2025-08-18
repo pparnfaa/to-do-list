@@ -99,13 +99,27 @@
           null
         ]
       },
+      "/Users/pparnfaa/Coding/to-do-list/app/helpers/brag_document_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/pparnfaa/Coding/to-do-list/app/helpers/quests_helper.rb": {
         "lines": [
           1,
           null
         ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/controllers/brag_document_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1755409407
+    "timestamp": 1755444118
   }
 }
