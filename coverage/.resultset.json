@@ -121,5 +121,108 @@
       }
     },
     "timestamp": 1755444118
+  },
+  "RSpec": {
+    "coverage": {
+      "/Users/pparnfaa/Coding/to-do-list/app/models/quest.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/controllers/brag_document_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/helpers/brag_document_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/helpers/quests_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/pparnfaa/Coding/to-do-list/app/controllers/quests_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          2,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          5,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1755538911
   }
 }
