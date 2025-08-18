@@ -38,6 +38,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 gem "tailwindcss-rails"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -52,6 +53,12 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "simplecov", require: false
+
+  gem "rspec-rails"
+
+  gem "capybara"
+
+  gem "selenium-webdriver", ">= 4.12"
 end
 
 group :development do
@@ -61,6 +68,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  # gem "capybara"
+  # gem "selenium-webdriver"
 end

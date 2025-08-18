@@ -1,55 +1,74 @@
 <% content_for :title, "Quests" %>
-<div class="bg-gradient-to-b from-indigo-50 to-blue-100 font-prompt">
+<div class="bg-gradient-to-b from-indigo-50 to-blue-100 font-prompt" data-testid="page-root">
   <div class="max-w-md mx-auto p-6">
     <!-- Header -->
     <div class="text-center mb-6 mt-10">
-      <h1 class="text-4xl font-bold text-indigo-700">My Academy Quest</h1>
-      <p class="text-gray-500 text-lg mt-3">Parnfa Phathabannaporn</p>
+      <h1 class="text-4xl font-bold text-indigo-700" data-testid="page-title">My Academy Quest</h1>
+      <p class="text-gray-500 text-lg mt-3" data-testid="profile-name">Parnfa Phathabannaporn</p>
     </div>
     <!-- Profile Image -->
     <div class="flex justify-center mb-6">
-      <%= image_tag "parnfa.jpg", 
-        class: "w-100 h-100 rounded-full object-cover border-10 border-indigo-200 shadow-md" %>
+      <%= image_tag "parnfa.jpg",
+        class: "w-100 h-100 rounded-full object-cover border-10 border-indigo-200 shadow-md",
+        data: { testid: "profile-image" } %>
     </div>
     <!-- Brag Button -->
     <div class="flex justify-center mb-6">
-      <%= link_to "My brag document", brag_document_index_path,
-      class: "bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-full font-medium shadow text-lg" %>
+      <%= link_to "My brag document",
+          brag_document_index_path,
+          class: "bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-full font-medium shadow text-lg",
+          data: { testid: "brag-button" } %>
     </div>
     <!-- Add Quest Form -->
     <div class="flex mb-6">
-      <%= form_with model: Quest.new, url: quests_path, local: true, class: "flex w-full" do |f| %>
-        <%= f.text_field :name, placeholder: "Add my quest list",
-          class: "flex-1 rounded-l-full border border-gray-300 px-6 py-3 text-md focus:ring focus:ring-indigo-200 bg-white" %>
-        <%= f.submit "+", 
-          class: "bg-indigo-400 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-r-full" %>
+      <%= form_with model: Quest.new, url: quests_path, local: true, class: "flex w-full", data: { testid: "add-quest-form" } do |f| %>
+        <%= f.text_field :name,
+              placeholder: "Add my quest list",
+              class: "flex-1 rounded-l-full border border-gray-300 px-6 py-3 text-md focus:ring focus:ring-indigo-200 bg-white",
+              data: { testid: "quest-input" } %>
+        <%= f.submit "+",
+              class: "bg-indigo-400 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-r-full",
+              data: { testid: "add-quest" } %>
       <% end %>
     </div>
     <!-- Quest List -->
-    <div class="space-y-4 mb-14 w-full max-w-md mx-auto">
+    <div class="space-y-4 mb-14 w-full max-w-md mx-auto" data-testid="quest-list">
       <% @quests.each do |quest| %>
-        <li class="relative flex items-center justify-between px-4 py-3 rounded-xl bg-white backdrop-blur-md shadow hover:bg-gray-100 transition cursor-pointer group">
+        <li class="relative flex items-center justify-between px-4 py-3 rounded-xl bg-white backdrop-blur-md shadow hover:bg-gray-100 transition cursor-pointer group"
+            data-testid="quest-item-<%= quest.id %>">
           <!-- Invisible link overlay -->
-          <%= link_to edit_quest_path(quest), class: "absolute inset-0 z-0" do %>
+          <%= link_to edit_quest_path(quest), class: "absolute inset-0 z-0", data: { testid: "quest-edit-link-#{quest.id}" } do %>
             &nbsp;
           <% end %>
           <!-- Checkbox + Name + Delete -->
           <div class="flex items-center space-x-3 relative z-10">
-            <%= form_with url: toggle_quest_path(quest), method: :post, local: true do %>
+            <%= form_with url: toggle_quest_path(quest), method: :post, local: true, data: { testid: "quest-toggle-form-#{quest.id}" } do %>
               <%= check_box_tag "status", "1", quest.status,
-            onchange: "this.form.submit()", 
-            class: "w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-blue-300" %>
+                    onchange: "this.form.submit()",
+                    class: "w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-blue-300",
+                    data: { testid: "quest-toggle-#{quest.id}" } %>
             <% end %>
-            <span class="<%= quest.status ? 'line-through text-gray-400' : 'text-gray-800' %> text-lg line-clamp-1 break-all">
+            <span
+              class="<%= quest.status ? 'line-through text-gray-400' : 'text-gray-800' %> text-lg line-clamp-1 break-all"
+              data-testid="quest-name-<%= quest.id %>">
               <%= quest.name %>
             </span>
           </div>
           <div class="relative z-10">
             <%= button_to "🗑", quest,
-          method: :delete,
-          data: { confirm: "Delete this quest?" },
-          class: "text-red-400 hover:text-red-600 text-lg cursor-pointer",
-          form: { class: "inline" } %>
+  method: :delete,
+  # ใส่ confirm + testid บน <form> (Turbo ดูที่ฟอร์ม)
+  form: {
+    class: "inline",
+    data: {
+      turbo_confirm: "Delete this quest?",
+      testid: "quest-delete-form-#{quest.id}"
+    }
+  },
+  # ใส่ testid บน <button>
+  data: { testid: "quest-delete-button-#{quest.id}" },
+  class: "text-red-400 hover:text-red-600 text-lg cursor-pointer"
+%>
           </div>
         </li>
       <% end %>
